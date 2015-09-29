@@ -27,13 +27,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.view.backgroundColor = UIColor.blackColor()
+        //Subscribe to keyboard notification
+        self.subscribeToKeyboardNotifications()
+        
         // Enable camera button?
         self.camera.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         setUpTextFields()
-        
-        //Subscribe to keyboard notification
-        self.subscribeToKeyboardNotifications()
     }
     
     // Unsubscribe
@@ -70,21 +71,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Pick an image and set up the image view
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.imagePickerView.image = image
-        
-        self.imagePickerView.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
         self.imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // Cancel the image picker
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //Pick an image from albums
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
-        
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -93,7 +90,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Take a pic from the camera
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
-        
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = UIImagePickerControllerSourceType.Camera
@@ -114,23 +110,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Shift view when keyboard shows
     func keyboardWillShow(notification: NSNotification) {
-        println(self.imagePickerView.frame.origin.y)
-        println("Anisha")
+        println("before show")
+        println(self.view.frame.origin.y)
         let keyboardHeight = getKeyboardHeight(notification)
-        self.imagePickerView.frame.origin.y -= keyboardHeight
-        //self.topTextField.frame.origin.y -= keyboardHeight
-        //self.bottomTextField.frame.origin.y -= keyboardHeight
-        println(self.imagePickerView.frame.origin.y)
+        println(keyboardHeight)
+        self.view.frame.origin.y = 0.0 - keyboardHeight
+        println("after show")
+        println(self.view.frame.origin.y)
     }
     
     //Shift view when keyboard shows
     func keyboardWillHide(notification: NSNotification) {
-        println(self.imagePickerView.frame.origin.y)
+        println("before hide")
+
+        println(self.view.frame.origin.y)
         let keyboardHeight = getKeyboardHeight(notification)
-        self.imagePickerView.frame.origin.y += keyboardHeight
-        self.topTextField.frame.origin.y += keyboardHeight
-        self.bottomTextField.frame.origin.y += keyboardHeight
-        println(self.imagePickerView.frame.origin.y)
+        self.view.frame.origin.y = 0.0
+        println("after hide")
+
+        println(self.view.frame.origin.y)
     }
     
     //Get height of keyboard

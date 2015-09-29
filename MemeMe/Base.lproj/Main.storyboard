@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -40,26 +41,24 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="44" width="97" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4Wd-ap-hxL">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="487" width="97" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WwT-Qf-dqm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="0lF-0H-PKq"/>
+                            <constraint firstItem="WwT-Qf-dqm" firstAttribute="top" secondItem="toN-22-ChE" secondAttribute="bottom" constant="-74" id="8oP-YI-FRi"/>
+                            <constraint firstItem="toN-22-ChE" firstAttribute="centerX" secondItem="WwT-Qf-dqm" secondAttribute="centerX" constant="0.5" id="D6H-qh-UPf"/>
+                            <constraint firstItem="WwT-Qf-dqm" firstAttribute="centerX" secondItem="4Wd-ap-hxL" secondAttribute="centerX" constant="-0.5" id="Ime-DF-Cme"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="A7p-5l-e6d" secondAttribute="bottom" id="KfT-2s-AbH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A7p-5l-e6d" secondAttribute="trailing" constant="-16" id="Qu1-3j-YWL"/>
                             <constraint firstItem="A7p-5l-e6d" firstAttribute="top" secondItem="WwT-Qf-dqm" secondAttribute="bottom" id="VxD-gt-FbS"/>
                             <constraint firstItem="A7p-5l-e6d" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="gR3-de-HVd"/>
+                            <constraint firstItem="4Wd-ap-hxL" firstAttribute="top" secondItem="WwT-Qf-dqm" secondAttribute="bottom" constant="-69" id="oak-9k-5Hu"/>
                             <constraint firstItem="WwT-Qf-dqm" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="s79-hy-h9c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WwT-Qf-dqm" secondAttribute="trailing" constant="-16" id="wY0-uQ-dkp"/>
                         </constraints>
@@ -71,13 +70,17 @@
                                 <exclude reference="4Wd-ap-hxL"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0lF-0H-PKq"/>
-                                <exclude reference="s79-hy-h9c"/>
-                                <exclude reference="wY0-uQ-dkp"/>
+                                <exclude reference="KfT-2s-AbH"/>
+                                <exclude reference="oak-9k-5Hu"/>
+                                <exclude reference="D6H-qh-UPf"/>
                                 <exclude reference="Qu1-3j-YWL"/>
                                 <exclude reference="VxD-gt-FbS"/>
                                 <exclude reference="gR3-de-HVd"/>
-                                <exclude reference="KfT-2s-AbH"/>
+                                <exclude reference="0lF-0H-PKq"/>
+                                <exclude reference="8oP-YI-FRi"/>
+                                <exclude reference="Ime-DF-Cme"/>
+                                <exclude reference="s79-hy-h9c"/>
+                                <exclude reference="wY0-uQ-dkp"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -88,13 +91,17 @@
                                 <include reference="4Wd-ap-hxL"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0lF-0H-PKq"/>
-                                <include reference="s79-hy-h9c"/>
-                                <include reference="wY0-uQ-dkp"/>
+                                <include reference="KfT-2s-AbH"/>
+                                <include reference="oak-9k-5Hu"/>
+                                <include reference="D6H-qh-UPf"/>
                                 <include reference="Qu1-3j-YWL"/>
                                 <include reference="VxD-gt-FbS"/>
                                 <include reference="gR3-de-HVd"/>
-                                <include reference="KfT-2s-AbH"/>
+                                <include reference="0lF-0H-PKq"/>
+                                <include reference="8oP-YI-FRi"/>
+                                <include reference="Ime-DF-Cme"/>
+                                <include reference="s79-hy-h9c"/>
+                                <include reference="wY0-uQ-dkp"/>
                             </mask>
                         </variation>
                     </view>
