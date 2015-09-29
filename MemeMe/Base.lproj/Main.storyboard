@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,98 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7p-5l-e6d">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Camera" id="cp6-tr-HV9">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="kQL-XG-d4V"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Album" id="Lee-W4-q1J">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="vXZ-lx-hvc" id="Rpn-J9-2d3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwT-Qf-dqm">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="toN-22-ChE">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="152" y="44" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4Wd-ap-hxL">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="152" y="487" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WwT-Qf-dqm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="0lF-0H-PKq"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="A7p-5l-e6d" secondAttribute="bottom" id="KfT-2s-AbH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A7p-5l-e6d" secondAttribute="trailing" constant="-16" id="Qu1-3j-YWL"/>
+                            <constraint firstItem="A7p-5l-e6d" firstAttribute="top" secondItem="WwT-Qf-dqm" secondAttribute="bottom" id="VxD-gt-FbS"/>
+                            <constraint firstItem="A7p-5l-e6d" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="gR3-de-HVd"/>
+                            <constraint firstItem="WwT-Qf-dqm" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="s79-hy-h9c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WwT-Qf-dqm" secondAttribute="trailing" constant="-16" id="wY0-uQ-dkp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="A7p-5l-e6d"/>
+                                <exclude reference="WwT-Qf-dqm"/>
+                                <exclude reference="toN-22-ChE"/>
+                                <exclude reference="4Wd-ap-hxL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0lF-0H-PKq"/>
+                                <exclude reference="s79-hy-h9c"/>
+                                <exclude reference="wY0-uQ-dkp"/>
+                                <exclude reference="Qu1-3j-YWL"/>
+                                <exclude reference="VxD-gt-FbS"/>
+                                <exclude reference="gR3-de-HVd"/>
+                                <exclude reference="KfT-2s-AbH"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="A7p-5l-e6d"/>
+                                <include reference="WwT-Qf-dqm"/>
+                                <include reference="toN-22-ChE"/>
+                                <include reference="4Wd-ap-hxL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0lF-0H-PKq"/>
+                                <include reference="s79-hy-h9c"/>
+                                <include reference="wY0-uQ-dkp"/>
+                                <include reference="Qu1-3j-YWL"/>
+                                <include reference="VxD-gt-FbS"/>
+                                <include reference="gR3-de-HVd"/>
+                                <include reference="KfT-2s-AbH"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="bottomTextField" destination="4Wd-ap-hxL" id="mHc-DX-YWS"/>
+                        <outlet property="camera" destination="cp6-tr-HV9" id="VzX-lo-W9U"/>
+                        <outlet property="imagePickerView" destination="WwT-Qf-dqm" id="Dya-c5-wdz"/>
+                        <outlet property="topTextField" destination="toN-22-ChE" id="b3O-9a-1vv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="358.5" y="377"/>
         </scene>
     </scenes>
 </document>
