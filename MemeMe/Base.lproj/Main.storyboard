@@ -21,12 +21,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7p-5l-e6d">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Camera" id="cp6-tr-HV9">
+                                    <barButtonItem systemItem="camera" id="cp6-tr-HV9">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="kQL-XG-d4V"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Album" id="Lee-W4-q1J">
+                                    <barButtonItem title="Albums" id="Lee-W4-q1J">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="vXZ-lx-hvc" id="Rpn-J9-2d3"/>
                                         </connections>
@@ -36,30 +36,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwT-Qf-dqm">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="45" width="400" height="511"/>
-                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="toN-22-ChE">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="188" y="67" width="26" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Wd-ap-hxL">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="188" y="487" width="26" height="30"/>
-                                </variation>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTh-rI-vJY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" id="SoZ-Q9-8RZ">
+                                    <barButtonItem systemItem="action" id="SoZ-Q9-8RZ">
                                         <connections>
                                             <action selector="shareMeme:" destination="vXZ-lx-hvc" id="5WQ-p1-7cO"/>
                                         </connections>
@@ -96,6 +87,14 @@
                                 <exclude reference="PTh-rI-vJY"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="KfT-2s-AbH"/>
+                                <exclude reference="oak-9k-5Hu"/>
+                                <exclude reference="D6H-qh-UPf"/>
+                                <exclude reference="kjB-BY-gz2"/>
+                                <exclude reference="vCI-Bc-0MJ"/>
+                                <exclude reference="Qu1-3j-YWL"/>
+                                <exclude reference="VxD-gt-FbS"/>
+                                <exclude reference="gR3-de-HVd"/>
                                 <exclude reference="Ejf-fe-d8H"/>
                                 <exclude reference="o5b-20-3De"/>
                                 <exclude reference="q64-Zo-zrq"/>
@@ -105,14 +104,6 @@
                                 <exclude reference="Ime-DF-Cme"/>
                                 <exclude reference="s79-hy-h9c"/>
                                 <exclude reference="wY0-uQ-dkp"/>
-                                <exclude reference="D6H-qh-UPf"/>
-                                <exclude reference="kjB-BY-gz2"/>
-                                <exclude reference="vCI-Bc-0MJ"/>
-                                <exclude reference="oak-9k-5Hu"/>
-                                <exclude reference="Qu1-3j-YWL"/>
-                                <exclude reference="VxD-gt-FbS"/>
-                                <exclude reference="gR3-de-HVd"/>
-                                <exclude reference="KfT-2s-AbH"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -124,6 +115,14 @@
                                 <include reference="PTh-rI-vJY"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="KfT-2s-AbH"/>
+                                <include reference="oak-9k-5Hu"/>
+                                <include reference="D6H-qh-UPf"/>
+                                <include reference="kjB-BY-gz2"/>
+                                <include reference="vCI-Bc-0MJ"/>
+                                <include reference="Qu1-3j-YWL"/>
+                                <include reference="VxD-gt-FbS"/>
+                                <include reference="gR3-de-HVd"/>
                                 <include reference="Ejf-fe-d8H"/>
                                 <include reference="o5b-20-3De"/>
                                 <include reference="q64-Zo-zrq"/>
@@ -133,14 +132,6 @@
                                 <include reference="Ime-DF-Cme"/>
                                 <include reference="s79-hy-h9c"/>
                                 <include reference="wY0-uQ-dkp"/>
-                                <include reference="D6H-qh-UPf"/>
-                                <include reference="kjB-BY-gz2"/>
-                                <include reference="vCI-Bc-0MJ"/>
-                                <include reference="oak-9k-5Hu"/>
-                                <include reference="Qu1-3j-YWL"/>
-                                <include reference="VxD-gt-FbS"/>
-                                <include reference="gR3-de-HVd"/>
-                                <include reference="KfT-2s-AbH"/>
                             </mask>
                         </variation>
                     </view>
