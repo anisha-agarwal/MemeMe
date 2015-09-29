@@ -28,13 +28,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
         
         self.view.backgroundColor = UIColor.blackColor()
-        //Subscribe to keyboard notification
-        self.subscribeToKeyboardNotifications()
         
         // Enable camera button?
         self.camera.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         setUpTextFields()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //Subscribe to keyboard notification
+        self.subscribeToKeyboardNotifications()
+        
     }
     
     // Unsubscribe
@@ -110,25 +115,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Shift view when keyboard shows
     func keyboardWillShow(notification: NSNotification) {
-        println("before show")
-        println(self.view.frame.origin.y)
-        let keyboardHeight = getKeyboardHeight(notification)
-        println(keyboardHeight)
-        self.view.frame.origin.y = 0.0 - keyboardHeight
-        println("after show")
-        println(self.view.frame.origin.y)
+        if self.bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y = -getKeyboardHeight(notification)
+        }
     }
     
     //Shift view when keyboard shows
     func keyboardWillHide(notification: NSNotification) {
-        println("before hide")
-
-        println(self.view.frame.origin.y)
-        let keyboardHeight = getKeyboardHeight(notification)
-        self.view.frame.origin.y = 0.0
-        println("after hide")
-
-        println(self.view.frame.origin.y)
+        if self.bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     //Get height of keyboard
