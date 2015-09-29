@@ -13,6 +13,7 @@
 		7DF91CD01BB51E26001DDE8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF91CCF1BB51E26001DDE8D /* Images.xcassets */; };
 		7DF91CD31BB51E26001DDE8D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF91CD11BB51E26001DDE8D /* LaunchScreen.xib */; };
 		7DF91CDF1BB51E26001DDE8D /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF91CDE1BB51E26001DDE8D /* MemeMeTests.swift */; };
+		7DF91DA11BBA69FF001DDE8D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF91DA01BBA69FF001DDE8D /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		7DF91CD81BB51E26001DDE8D /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF91CDD1BB51E26001DDE8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DF91CDE1BB51E26001DDE8D /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
+		7DF91DA01BBA69FF001DDE8D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				7DF91CC81BB51E26001DDE8D /* AppDelegate.swift */,
 				7DF91CCA1BB51E26001DDE8D /* ViewController.swift */,
+				7DF91DA01BBA69FF001DDE8D /* Meme.swift */,
 				7DF91CCC1BB51E26001DDE8D /* Main.storyboard */,
 				7DF91CCF1BB51E26001DDE8D /* Images.xcassets */,
 				7DF91CD11BB51E26001DDE8D /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DF91DA11BBA69FF001DDE8D /* Meme.swift in Sources */,
 				7DF91CCB1BB51E26001DDE8D /* ViewController.swift in Sources */,
 				7DF91CC91BB51E26001DDE8D /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				7DF91CE41BB51E26001DDE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DF91CE51BB51E26001DDE8D /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				7DF91CE71BB51E26001DDE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
