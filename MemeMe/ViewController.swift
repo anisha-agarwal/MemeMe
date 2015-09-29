@@ -30,26 +30,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = UIColor.blackColor()
         
         // Enable camera button?
-        self.camera.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        camera.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
-        setUpTextFields()
-        self.shareButton.enabled = false
+        setUpTextFields(topTextField, text: "TOP")
+        setUpTextFields(bottomTextField, text: "BOTTOM")
+        shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Subscribe to keyboard notification
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
     }
     
     // Unsubscribe
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -59,40 +60,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //****************************
     // Setting up the text fields
     //****************************
-    func setUpTextFields() {
+    func setUpTextFields(textField: UITextField, text: String) {
         //Background, hide border
-        self.topTextField.backgroundColor = UIColor.clearColor()
-        self.bottomTextField.backgroundColor = UIColor.clearColor()
-        self.topTextField.borderStyle = UITextBorderStyle.None
-        self.bottomTextField.borderStyle = UITextBorderStyle.None
+        textField.backgroundColor = UIColor.clearColor()
+        textField.borderStyle = UITextBorderStyle.None
         
         //Set text field properties
         //Initial text
-        self.topTextField.text = "TOP"
-        self.bottomTextField.text = "BOTTOM"
+        textField.text = text
         
         //Text field alignment
-        self.topTextField.textAlignment = NSTextAlignment.Center
-        self.bottomTextField.textAlignment = .Center
+        textField.textAlignment = NSTextAlignment.Center
         
         //Set default text attributes
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
+        textField.defaultTextAttributes = memeTextAttributes
     }
     
     
     // Pick an image and set up the image view
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        self.imagePickerView.image = image
-        self.imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.shareButton.enabled = true
+        imagePickerView.image = image
+        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
+        dismissViewControllerAnimated(true, completion: nil)
+        shareButton.enabled = true
     }
     
     // Cancel the image picker
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.shareButton.enabled = false
+        dismissViewControllerAnimated(true, completion: nil)
+        shareButton.enabled = false
     }
     
     //Pick an image from albums
@@ -100,7 +96,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     //Take a pic from the camera
@@ -108,7 +104,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     // MARK: -
@@ -128,15 +124,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Shift view when keyboard shows
     func keyboardWillShow(notification: NSNotification) {
-        if self.bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y = -getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
     //Shift view when keyboard shows
     func keyboardWillHide(notification: NSNotification) {
-        if self.bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -154,8 +150,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Generate the memed image, including text and no toolbar
     func generateMemedImage() -> UIImage {
         // hide toolbar
-        self.toolBar.hidden = true
-        self.topToolBar.hidden = true
+        toolBar.hidden = true
+        topToolBar.hidden = true
         
         // Render view to image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -164,14 +160,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         // show toolbar
-        self.toolBar.hidden = false
-        self.topToolBar.hidden = false
+        toolBar.hidden = false
+        topToolBar.hidden = false
         
         return memedImage
     }
     
     func saveMeme(memeImage: UIImage) {
-        var meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, initialImage: imagePickerView.image!, memeImage: memeImage)
+        var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, initialImage: imagePickerView.image!, memeImage: memeImage)
     }
     
     
